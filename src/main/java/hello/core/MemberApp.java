@@ -13,10 +13,7 @@ public class MemberApp {
 //        AppConfig appConfig = new AppConfig();
 //        MemberService memberService = appConfig.memberService();
 
-        // AppConfig에 있는 정보를 가지고 @Bean이 붙어있는 것들을 스프링 컨테이너에서 관리해줌
-        // ApplicationContext를 스프링 컨테이너라 한다
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        // AppConfig 찾을 Bean의 메서드 이름, 두번째는 타입
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
 
         Member member = new Member(1L, "memberA", Grade.VIP);
